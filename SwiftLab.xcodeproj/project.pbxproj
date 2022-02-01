@@ -11,6 +11,12 @@
 		4F6729E327A3F8EB002A2F9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6729E227A3F8EB002A2F9B /* ContentView.swift */; };
 		4F6729E527A3F8ED002A2F9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F6729E427A3F8ED002A2F9B /* Assets.xcassets */; };
 		4F6729E827A3F8ED002A2F9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F6729E727A3F8ED002A2F9B /* Preview Assets.xcassets */; };
+		4F6729EF27A3F93A002A2F9B /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6729EE27A3F93A002A2F9B /* SettingsStore.swift */; };
+		4F6729F327A41E11002A2F9B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6729F227A41E11002A2F9B /* SettingView.swift */; };
+		4FC161BF27A5022100AA51D1 /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161BE27A5022100AA51D1 /* PersonsView.swift */; };
+		4FC161C327A5025000AA51D1 /* PersonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161C227A5025000AA51D1 /* PersonStore.swift */; };
+		4FC161C527A5076600AA51D1 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161C427A5076600AA51D1 /* EditingView.swift */; };
+		4FC161C727A5139300AA51D1 /* GesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161C627A5139300AA51D1 /* GesturesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		4F6729E227A3F8EB002A2F9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4F6729E427A3F8ED002A2F9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F6729E727A3F8ED002A2F9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F6729EE27A3F93A002A2F9B /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		4F6729F227A41E11002A2F9B /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		4FC161BE27A5022100AA51D1 /* PersonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsView.swift; sourceTree = "<group>"; };
+		4FC161C227A5025000AA51D1 /* PersonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonStore.swift; sourceTree = "<group>"; };
+		4FC161C427A5076600AA51D1 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
+		4FC161C627A5139300AA51D1 /* GesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,8 @@
 		4F6729DF27A3F8EB002A2F9B /* SwiftLab */ = {
 			isa = PBXGroup;
 			children = (
+				4FC161BD27A501F300AA51D1 /* Observables */,
+				4FC161BC27A501A500AA51D1 /* Views */,
 				4F6729E027A3F8EB002A2F9B /* SwiftLabApp.swift */,
 				4F6729E227A3F8EB002A2F9B /* ContentView.swift */,
 				4F6729E427A3F8ED002A2F9B /* Assets.xcassets */,
@@ -65,6 +79,26 @@
 				4F6729E727A3F8ED002A2F9B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FC161BC27A501A500AA51D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F6729F227A41E11002A2F9B /* SettingView.swift */,
+				4FC161BE27A5022100AA51D1 /* PersonsView.swift */,
+				4FC161C427A5076600AA51D1 /* EditingView.swift */,
+				4FC161C627A5139300AA51D1 /* GesturesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FC161BD27A501F300AA51D1 /* Observables */ = {
+			isa = PBXGroup;
+			children = (
+				4F6729EE27A3F93A002A2F9B /* SettingsStore.swift */,
+				4FC161C227A5025000AA51D1 /* PersonStore.swift */,
+			);
+			path = Observables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC161C327A5025000AA51D1 /* PersonStore.swift in Sources */,
 				4F6729E327A3F8EB002A2F9B /* ContentView.swift in Sources */,
+				4FC161C727A5139300AA51D1 /* GesturesView.swift in Sources */,
+				4FC161BF27A5022100AA51D1 /* PersonsView.swift in Sources */,
+				4FC161C527A5076600AA51D1 /* EditingView.swift in Sources */,
+				4F6729F327A41E11002A2F9B /* SettingView.swift in Sources */,
+				4F6729EF27A3F93A002A2F9B /* SettingsStore.swift in Sources */,
 				4F6729E127A3F8EB002A2F9B /* SwiftLabApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
