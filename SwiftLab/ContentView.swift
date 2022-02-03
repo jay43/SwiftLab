@@ -30,6 +30,10 @@ struct ContentView: View {
                         Text("Show/Hide button")
                     }
                     
+                    NavigationLink(destination: ItemsContainerView()) {
+                        Text("Closure Concept")
+                    }
+                    
                     if isButtonVisible {
                         Button(action: {}) {
                             Text("Hidden Button")
