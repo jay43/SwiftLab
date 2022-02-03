@@ -34,6 +34,10 @@ struct ContentView: View {
                         Text("Closure Concept")
                     }
                     
+                    NavigationLink(destination: GradientsView()) {
+                        Text("Gradient Concept")
+                    }
+                    
                     if isButtonVisible {
                         Button(action: {}) {
                             Text("Hidden Button")
