@@ -38,6 +38,9 @@ struct ContentView: View {
                         Text("Gradient Concept")
                     }
                     
+                    NavigationLink(destination: BottomSheetContainer()) {
+                        Text("BottomSheet")
+                    }
                     if isButtonVisible {
                         Button(action: {}) {
                             Text("Hidden Button")
