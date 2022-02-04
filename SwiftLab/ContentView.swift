@@ -41,6 +41,10 @@ struct ContentView: View {
                     NavigationLink(destination: BottomSheetContainer()) {
                         Text("BottomSheet")
                     }
+                    
+                    NavigationLink(destination: PagerContainerView()) {
+                        Text("Pager concept")
+                    }
                     if isButtonVisible {
                         Button(action: {}) {
                             Text("Hidden Button")
