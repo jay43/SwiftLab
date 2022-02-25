@@ -37,13 +37,20 @@ struct ContentView: View {
                     NavigationLink(destination: GradientsView()) {
                         Text("Gradient Concept")
                     }
-                    
-                    NavigationLink(destination: BottomSheetContainer()) {
-                        Text("BottomSheet")
-                    }
-                    
-                    NavigationLink(destination: PagerContainerView()) {
-                        Text("Pager concept")
+                    Group {
+                        NavigationLink(destination: BottomSheetContainer()) {
+                            Text("BottomSheet")
+                        }
+                        
+                        NavigationLink(destination: PagerContainerView()) {
+                            Text("Pager concept")
+                        }
+                        NavigationLink(destination: AnchorPrefView()){
+                            Text("Anchor Pref")
+                        }
+                        NavigationLink(destination: AnchorPrefView2()){
+                            Text("Anchor Pref 2")
+                        }
                     }
                     if isButtonVisible {
                         Button(action: {}) {
