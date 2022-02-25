@@ -15,6 +15,11 @@ struct BottomSheetContainer: View {
         latitude: 37.789467,
         longitude:-122.416772
     )
+    @State private var links: [URL] = [
+        URL(string: "https://twitter.com/mecid")!,
+        URL(string: "https://apple.com/")!
+    ]
+    
     var body: some View {
         GeometryReader { geometry in
             MapView(center: $centerLocation)
@@ -45,9 +50,30 @@ struct BottomSheetContainer: View {
                         }
                     }
                     Spacer()
+                    List {
+                        ForEach(links, id: \.self) { url in
+                            Text(url.absoluteString)
+                                .onDrag { NSItemProvider(object: url as NSURL) }
+                        }
+                        .onInsert(of: ["public.url"], perform: drop)
+//                        .onDrop(
+//                            of: ["public.url"],
+//                            delegate: BookmarksDropDelegate(bookmarks: $links)
+//                        )
+                    }
                 }
             }
         }.edgesIgnoringSafeArea(.all)
+    }
+    
+    private func drop(at index: Int, _ items: [NSItemProvider]) {
+        for item in items {
+            _ = item.loadObject(ofClass: URL.self) { url, _ in
+                DispatchQueue.main.async {
+                    url.map { self.links.insert($0, at: index) }
+                }
+            }
+        }
     }
 }
 
@@ -98,4 +124,29 @@ extension VerticalAlignment {
     }
     
     static let custom = VerticalAlignment(CustomAlignment.self)
+}
+
+
+//Drop delegates
+struct BookmarksDropDelegate: DropDelegate {
+    @Binding var bookmarks: [URL]
+    
+    func performDrop(info: DropInfo) -> Bool {
+        guard info.hasItemsConforming(to: ["public.url"]) else {
+            return false
+        }
+        
+        let items = info.itemProviders(for: ["public.url"])
+        for item in items {
+            _ = item.loadObject(ofClass: URL.self) { url, _ in
+                if let url = url {
+                    DispatchQueue.main.async {
+                        self.bookmarks.insert(url, at: 0)
+                    }
+                }
+            }
+        }
+        
+        return true
+    }
 }
