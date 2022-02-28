@@ -51,6 +51,9 @@ struct ContentView: View {
                         NavigationLink(destination: AnchorPrefView2()){
                             Text("Anchor Pref 2")
                         }
+                        NavigationLink(destination: TemplateView()){
+                            Text("Template View")
+                        }
                     }
                     if isButtonVisible {
                         Button(action: {}) {
