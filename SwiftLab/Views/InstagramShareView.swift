@@ -41,16 +41,23 @@ struct InstagramShareView_Previews: PreviewProvider {
     }
 }
 
-
 struct InstagramSharingUtils {
     
     // Returns a URL if Instagram Stories can be opened, otherwise returns nil.
     private static var instagramStoriesUrl: URL? {
-        if let url = URL(string: "instagram-stories://share?source_application=uk.sdonnelly.personal-best-0") {
+        if let url = URL(string: "instagram-stories://share?source_application=your-app-bundle-identifier") {
             if UIApplication.shared.canOpenURL(url) {
                 return url
             }
-            return nil
+        }
+        return nil
+    }
+    
+    private static var facebookStoriesUrl: URL? {
+        if let url = URL(string: "facebook-stories://share") {
+            if UIApplication.shared.canOpenURL(url) {
+                return url
+            }
         }
         return nil
     }
@@ -58,6 +65,10 @@ struct InstagramSharingUtils {
     // Convenience wrapper to return a boolean for `instagramStoriesUrl`
     static var canOpenInstagramStories: Bool {
         return instagramStoriesUrl != nil
+    }
+    
+    static var canOpenFacebookStories: Bool {
+        return facebookStoriesUrl != nil
     }
     
     // If Instagram Stories is available, writes the image to the pasteboard and
@@ -72,10 +83,13 @@ struct InstagramSharingUtils {
         // Convert the image to data that can be written to the pasteboard.
         let imageDataOrNil = UIImage.pngData(image)
         guard let imageData = imageDataOrNil() else {
-            Log.error("🙈 Image data not available.")
+            print("🙈 Image data not available.")
             return
         }
-        let pasteboardItem = ["com.instagram.sharedSticker.backgroundImage": imageData]
+        let pasteboardItem: [String: Any] = ["com.instagram.sharedSticker.backgroundImage": imageData,
+                                             "com.instagram.sharedSticker.backgroundTopColor": "#FFFFFFFF",
+                                             "com.instagram.sharedSticker.backgroundBottomColor": "#1A579780"
+        ] as [String : Any]
         let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60 * 5)]
         
         // Add the image to the pasteboard. Instagram will read the image from the pasteboard when it's opened.
@@ -83,6 +97,27 @@ struct InstagramSharingUtils {
         
         // Open Instagram.
         UIApplication.shared.open(instagramStoriesUrl, options: [:], completionHandler: nil)
+    }
+    
+    static func shareToFacebookStories(_ image: UIImage) {
+        guard let facebookStoriesUrl = facebookStoriesUrl else {
+            return
+        }
+        
+        let imageDataOrNil = UIImage.pngData(image)
+        guard let imageData = imageDataOrNil() else {
+            print("🙈 Image data not available.")
+            return
+        }
+        let pasteboardItem: [String: Any] = ["com.facebook.sharedSticker.backgroundImage": imageData,
+                                             "com.facebook.sharedSticker.appID" : "appId"] // Update appId
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60 * 5)]
+        
+        // Add the image to the pasteboard. Instagram will read the image from the pasteboard when it's opened.
+        UIPasteboard.general.setItems([pasteboardItem], options: pasteboardOptions)
+        
+        // Open Instagram.
+        UIApplication.shared.open(facebookStoriesUrl, options: [:], completionHandler: nil)
     }
 }
 
