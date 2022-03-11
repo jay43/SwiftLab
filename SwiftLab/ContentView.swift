@@ -54,6 +54,9 @@ struct ContentView: View {
                         NavigationLink(destination: TemplateView()){
                             Text("Template View")
                         }
+                        NavigationLink(destination: MailView()){
+                            Text("Mail View")
+                        }
                     }
                     if isButtonVisible {
                         Button(action: {}) {

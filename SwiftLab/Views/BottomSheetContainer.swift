@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import MapKit
+import MapItemPicker
 
 struct BottomSheetContainer: View {
     @State private var bottomSheetShown = false
@@ -19,51 +20,61 @@ struct BottomSheetContainer: View {
         URL(string: "https://twitter.com/mecid")!,
         URL(string: "https://apple.com/")!
     ]
+    @State private var showingPicker = false
     
     var body: some View {
-        GeometryReader { geometry in
-            MapView(center: $centerLocation)
-            BottomSheetView(
-                isOpen: self.$bottomSheetShown,
-                maxHeight: geometry.size.height * 0.7
-            ) {
-                HStack {
-                    Spacer()
-                    HStack(alignment: .center) {
-                        Image(systemName: "star")
-                        VStack(alignment: .center) {
-                            Text("Toronto")
-                            Text("Paris")
-                            Text("London")
-                            Text("Madrid")
-                        }
-                    }
-                    Spacer()
-                    HStack(alignment: .custom) {
-                        Image(systemName: "star")
-                        VStack(alignment: .leading) {
-                            Text("Toronto")
-                            Text("Paris")
-                            Text("London")
-                                .alignmentGuide(.custom) { $0[VerticalAlignment.center] }
-                            Text("Madrid")
-                        }
-                    }
-                    Spacer()
-                    List {
-                        ForEach(links, id: \.self) { url in
-                            Text(url.absoluteString)
-                                .onDrag { NSItemProvider(object: url as NSURL) }
-                        }
-                        .onInsert(of: ["public.url"], perform: drop)
-//                        .onDrop(
-//                            of: ["public.url"],
-//                            delegate: BookmarksDropDelegate(bookmarks: $links)
-//                        )
-                    }
-                }
+        Button("Choose location") {
+            showingPicker = true
+        }
+        .mapItemPicker(isPresented: $showingPicker) { item in
+            if let name = item?.name {
+                print("Selected \(name)")
             }
-        }.edgesIgnoringSafeArea(.all)
+        }
+//        GeometryReader { geometry in
+//            
+//            MapView(center: $centerLocation)
+//            BottomSheetView(
+//                isOpen: self.$bottomSheetShown,
+//                maxHeight: geometry.size.height * 0.7
+//            ) {
+//                HStack {
+//                    Spacer()
+//                    HStack(alignment: .center) {
+//                        Image(systemName: "star")
+//                        VStack(alignment: .center) {
+//                            Text("Toronto")
+//                            Text("Paris")
+//                            Text("London")
+//                            Text("Madrid")
+//                        }
+//                    }
+//                    Spacer()
+//                    HStack(alignment: .custom) {
+//                        Image(systemName: "star")
+//                        VStack(alignment: .leading) {
+//                            Text("Toronto")
+//                            Text("Paris")
+//                            Text("London")
+//                                .alignmentGuide(.custom) { $0[VerticalAlignment.center] }
+//                            Text("Madrid")
+//                        }
+//                    }
+//                    Spacer()
+//                    List {
+//                        ForEach(links, id: \.self) { url in
+//                            Text(url.absoluteString)
+//                                .onDrag { NSItemProvider(object: url as NSURL) }
+//                        }
+//                        .onInsert(of: ["public.url"], perform: drop)
+////                        .onDrop(
+////                            of: ["public.url"],
+////                            delegate: BookmarksDropDelegate(bookmarks: $links)
+////                        )
+//                    }
+//                }
+//            }
+//        }.edgesIgnoringSafeArea(.all)
     }
     
     private func drop(at index: Int, _ items: [NSItemProvider]) {

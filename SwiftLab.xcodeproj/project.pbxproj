@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F04C56E27D32CD400AFE0AD /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04C56D27D32CD400AFE0AD /* MailView.swift */; };
+		4F04C57127D32D0F00AFE0AD /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F04C57027D32D0F00AFE0AD /* EmailHelper.swift */; };
+		4F04C57427D332F800AFE0AD /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 4F04C57327D332F800AFE0AD /* SwiftSMTP */; };
 		4F0FC60C27ABA69A009207AE /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FC60B27ABA69A009207AE /* ItemsView.swift */; };
 		4F0FC60E27ABA776009207AE /* ItemsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FC60D27ABA776009207AE /* ItemsContainerView.swift */; };
 		4F0FC61027ABAD7C009207AE /* GradientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FC60F27ABAD7C009207AE /* GradientsView.swift */; };
@@ -22,6 +25,7 @@
 		4F6729EF27A3F93A002A2F9B /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6729EE27A3F93A002A2F9B /* SettingsStore.swift */; };
 		4F6729F327A41E11002A2F9B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6729F227A41E11002A2F9B /* SettingView.swift */; };
 		4F79941427C8DFD800109146 /* AnchorPrefView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79941327C8DFD800109146 /* AnchorPrefView2.swift */; };
+		4F7A6CB527CF9AC7000063BE /* MapItemPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4F7A6CB427CF9AC7000063BE /* MapItemPicker */; };
 		4FAE7B5E27CCC0E800794469 /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAE7B5D27CCC0E800794469 /* TemplateView.swift */; };
 		4FC161BF27A5022100AA51D1 /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161BE27A5022100AA51D1 /* PersonsView.swift */; };
 		4FC161C327A5025000AA51D1 /* PersonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC161C227A5025000AA51D1 /* PersonStore.swift */; };
@@ -30,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F04C56D27D32CD400AFE0AD /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		4F04C57027D32D0F00AFE0AD /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		4F0FC60B27ABA69A009207AE /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		4F0FC60D27ABA776009207AE /* ItemsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsContainerView.swift; sourceTree = "<group>"; };
 		4F0FC60F27ABAD7C009207AE /* GradientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientsView.swift; sourceTree = "<group>"; };
@@ -58,12 +64,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F04C57427D332F800AFE0AD /* SwiftSMTP in Frameworks */,
+				4F7A6CB527CF9AC7000063BE /* MapItemPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F04C56F27D32CFC00AFE0AD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4F04C57027D32D0F00AFE0AD /* EmailHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4F0FC60A27ABA676009207AE /* Closr */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +125,7 @@
 		4F6729DF27A3F8EB002A2F9B /* SwiftLab */ = {
 			isa = PBXGroup;
 			children = (
+				4F04C56F27D32CFC00AFE0AD /* Helper */,
 				4F49E6A027ACE99C000D2AC2 /* Custom */,
 				4FC161BD27A501F300AA51D1 /* Observables */,
 				4FC161BC27A501A500AA51D1 /* Views */,
@@ -142,6 +159,7 @@
 				4F64C81627BF72D600F2C00D /* AnchorPrefView.swift */,
 				4F79941327C8DFD800109146 /* AnchorPrefView2.swift */,
 				4FAE7B5D27CCC0E800794469 /* TemplateView.swift */,
+				4F04C56D27D32CD400AFE0AD /* MailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +189,10 @@
 			dependencies = (
 			);
 			name = SwiftLab;
+			packageProductDependencies = (
+				4F7A6CB427CF9AC7000063BE /* MapItemPicker */,
+				4F04C57327D332F800AFE0AD /* SwiftSMTP */,
+			);
 			productName = SwiftLab;
 			productReference = 4F6729DD27A3F8EB002A2F9B /* SwiftLab.app */;
 			productType = "com.apple.product-type.application";
@@ -199,6 +221,10 @@
 				Base,
 			);
 			mainGroup = 4F6729D427A3F8EB002A2F9B;
+			packageReferences = (
+				4F7A6CB327CF9AC7000063BE /* XCRemoteSwiftPackageReference "swiftui-map-item-picker" */,
+				4F04C57227D332F800AFE0AD /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+			);
 			productRefGroup = 4F6729DE27A3F8EB002A2F9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,6 +255,8 @@
 				4F0FC61027ABAD7C009207AE /* GradientsView.swift in Sources */,
 				4FC161C327A5025000AA51D1 /* PersonStore.swift in Sources */,
 				4F64C81727BF72D600F2C00D /* AnchorPrefView.swift in Sources */,
+				4F04C57127D32D0F00AFE0AD /* EmailHelper.swift in Sources */,
+				4F04C56E27D32CD400AFE0AD /* MailView.swift in Sources */,
 				4F49E6A527AD0380000D2AC2 /* PagerContainerView.swift in Sources */,
 				4F6729E327A3F8EB002A2F9B /* ContentView.swift in Sources */,
 				4FC161C727A5139300AA51D1 /* GesturesView.swift in Sources */,
@@ -382,6 +410,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,6 +441,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,6 +477,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F04C57227D332F800AFE0AD /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		4F7A6CB327CF9AC7000063BE /* XCRemoteSwiftPackageReference "swiftui-map-item-picker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-map-item-picker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F04C57327D332F800AFE0AD /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F04C57227D332F800AFE0AD /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
+		};
+		4F7A6CB427CF9AC7000063BE /* MapItemPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F7A6CB327CF9AC7000063BE /* XCRemoteSwiftPackageReference "swiftui-map-item-picker" */;
+			productName = MapItemPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4F6729D527A3F8EB002A2F9B /* Project object */;
 }
