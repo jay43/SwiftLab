@@ -57,6 +57,9 @@ struct ContentView: View {
                         NavigationLink(destination: MailView()){
                             Text("Mail View")
                         }
+                        NavigationLink(destination: InstagramShareView()){
+                            Text("Instagram Share View")
+                        }
                     }
                     if isButtonVisible {
                         Button(action: {}) {

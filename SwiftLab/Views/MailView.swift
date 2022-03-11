@@ -11,7 +11,7 @@ import SwiftSMTP
 struct MailView: View {
     var body: some View {
         Button(action: {
-            sendMail()
+            //sendMail()
         }) {
             Text("Send Email")
         }
